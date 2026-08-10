@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Eligibility</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(to right,#43cea2,#185a9d);
+}
+
+.container{
+    width:350px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px gray;
+    text-align:center;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid gray;
+    border-radius:5px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e7e34;
+}
+
+#result{
+    margin-top:20px;
+    font-weight:bold;
+    color:green;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Loan Eligibility</h2>
+
+<input type="text" id="name" placeholder="Applicant Name">
+
+<input type="number" id="income" placeholder="Monthly Income">
+
+<button onclick="loan()">Check Eligibility</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function loan(){
+
+let name=document.getElementById("name").value;
+let income=parseFloat(document.getElementById("income").value);
+
+if(name=="" || isNaN(income)){
+    alert("Please fill all fields");
+    return;
+}
+
+let result;
+
+if(income>=50000){
+    result="Eligible for Loan";
+}
+else{
+    result="Not Eligible for Loan";
+}
+
+document.getElementById("result").innerHTML=
+"Applicant : "+name+"<br>"+
+"Monthly Income : ₹"+income+"<br>"+
+"Status : "+result;
+
+}
+
+</script>
+
+</body>
+</html>

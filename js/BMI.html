@@ -1,0 +1,73 @@
+<html>
+ 
+
+ 
+    <style>
+        .container{
+            background-color: rgb(134, 53, 201);
+            height:100vh;
+            weight:100%;
+        }
+        input{
+             margin-left:380px;
+            height:30px;
+            text-color:rgb(233, 29, 155);
+            font-family:cursive;
+             
+        }
+        button{
+            margin-left:380px;
+            height:20px;
+            
+            color:rgb(16, 7, 66);
+        }
+        h2{
+            text-size:100px;
+            padding-top:200px;
+            text-align:center;
+            color:rgb(0,0,0);
+        }
+        </style>
+        <body>
+        
+
+    <div class="container">
+        <h2>CALCULATE BMI</h2>
+
+    <input type="text" id="name" placeholder="enter name"><br>
+    <br>
+    <input type="number" id="height" placeholder="enter height"><br><br>
+    <input type="number" id="weight" placeholder="enter weight"><br><br>
+    <button onclick="calculate()">calculate</button>
+    <p id="result"></p>
+    </div>
+    <script>   
+        function calculate(){
+            let name=document.getElementById("name").value;
+            let height=document.getElementById("height").value;
+            let weight=document.getElementById("weight").value;
+            let bmi=weight/(height*height);
+            if(name=""||isNaN(height)||isNaN(weight)){
+                alert("please enter  fields correctly");
+                return;
+            }
+            let category="";
+            if(bmi<18.5){
+                category="underweight";
+                
+            }   
+            else if(bmi<=24.9){
+                category="normal weight";
+            }
+            else if(bmi<=29.9){
+                category="heavy weight";
+
+            }
+            else{
+                category="obesity";
+            }
+            document.getElementById("result").innerHTML=category;
+        }
+        </script>
+        </body>
+        </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bus Ticket Booking</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+body{
+    display:flex; 
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(to right,#00c6ff,#0072ff);
+}
+.container{
+    width:350px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px gray;
+    text-align:center;
+}
+h2{
+    margin-bottom:20px;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid gray;
+    border-radius:5px;
+    font-size:16px;
+}
+button{
+    width:100%;
+    padding:10px;
+    background:#007BFF;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#result{
+    margin-top:20px;
+    font-weight:bold;
+    color:green;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Bus Ticket Booking</h2>
+
+<input type="text" id="name" placeholder="Passenger Name">
+
+<input type="number" id="age" placeholder="Enter Age">
+
+<button onclick="bookTicket()">Book Ticket</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function bookTicket(){
+
+let name=document.getElementById("name").value;
+let age=parseInt(document.getElementById("age").value);
+
+if(name=="" || isNaN(age)){
+    alert("Please fill all fields");
+    return;
+}
+
+let ticket;
+
+if(age<5){
+    ticket="Free Ticket";
+}
+else if(age>=60){
+    ticket="Senior Citizen Discount";
+}
+else{
+    ticket="Regular Ticket";
+}
+
+document.getElementById("result").innerHTML=
+"Passenger : "+name+"<br>"+
+"Age : "+age+"<br>"+
+"Ticket : "+ticket;
+
+}
+
+</script>
+
+</body>
+</html>

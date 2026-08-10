@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Library Book Issue</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(to right,#56ab2f,#a8e063);
+}
+.container{
+    width:350px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px gray;
+    text-align:center;
+}
+h2{
+    margin-bottom:20px;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid gray;
+    border-radius:5px;
+    font-size:16px;
+}
+button{
+    width:100%;
+    padding:10px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#1b5e20;
+}
+#result{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    color:green;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Library Book Issue</h2>
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="number" id="books" placeholder="Number of Books">
+
+<button onclick="issueBook()">Issue Book</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function issueBook(){
+
+let name=document.getElementById("name").value;
+let books=parseInt(document.getElementById("books").value);
+
+if(name=="" || isNaN(books)){
+    alert("Please fill all fields");
+    return;
+}
+
+let status;
+
+if(books<=3){
+    status="Books Issued Successfully";
+}
+else{
+    status="Maximum 3 Books Allowed";
+}
+
+document.getElementById("result").innerHTML=
+"Student : "+name+"<br>"+
+"Books Requested : "+books+"<br>"+
+"Status : "+status;
+
+}
+
+</script>
+
+</body>
+</html>

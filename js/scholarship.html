@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scholarship Eligibility</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(to right,#8EC5FC,#E0C3FC);
+}
+.container{
+    width:350px;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px gray;
+    text-align:center;
+}
+h2{
+    margin-bottom:20px;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid gray;
+    border-radius:5px;
+    font-size:16px;
+}
+button{
+    width:100%;
+    padding:10px;
+    background:#6a1b9a;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#4a148c;
+}
+#result{
+    margin-top:20px;
+    font-weight:bold;
+    color:green;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Scholarship Eligibility</h2>
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="number" id="marks" placeholder="Enter Marks (%)">
+
+<button onclick="checkScholarship()">Check</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function checkScholarship(){
+
+let name=document.getElementById("name").value;
+let marks=parseFloat(document.getElementById("marks").value);
+
+if(name=="" || isNaN(marks)){
+    alert("Please fill all fields");
+    return;
+}
+
+let scholarship;
+
+if(marks>=90){
+    scholarship="Full Scholarship";
+}
+else if(marks>=75){
+    scholarship="Half Scholarship";
+}
+else{
+    scholarship="No Scholarship";
+}
+
+document.getElementById("result").innerHTML=
+"Student : "+name+"<br>"+
+"Marks : "+marks+"%<br>"+
+"Scholarship : "+scholarship;
+
+}
+
+</script>
+
+</body>
+</html>

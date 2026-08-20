@@ -1,0 +1,11 @@
+Level 6: String + List
+Convert a string into a list of characters.
+Convert a list of characters into a string.
+Create a sentence and split it into a list of words.
+Create a list of words and join them into a single sentence using join().
+Create a sentence and create a list containing only words with more than 5 characters.
+Create a sentence and count the frequency of each word.
+Create a list of names and join them into a single string separated by commas.
+Create a sentence and remove duplicate words.
+Create a sentence and display the words in alphabetical order.
+Create a sentence and find the longest and shortest words.

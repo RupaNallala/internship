@@ -1,0 +1,53 @@
+Level 1: Lists
+Create a list of 5 fruits and print all the elements.
+Create a list of 5 numbers and print the first and last elements.
+Create a list of 10 numbers and print the first 5 elements using slicing.
+Create a list of 10 numbers and print the last 5 elements using slicing.
+Create a list of student names and find the number of students using len().
+Create a list of numbers and add a new number using append().
+Create a list of names and insert a new name at the second position.
+Create a list of numbers and remove a specific number using remove().
+Create a list of numbers and remove the last element using pop().
+Create a list of numbers and sort them in ascending order.
+Create a list of numbers and sort them in descending order.
+Create a list of numbers and reverse the list.
+Create a list of student names and check whether a particular student exists.
+Create a list containing duplicate values and count how many times a particular value appears.
+Create a list of numbers and find the index position of a particular number.
+
+Level 2: Lists with Loops
+Create a list of numbers and print only the even numbers.
+Create a list of numbers and print only the odd numbers.
+Create a list of numbers and calculate the total without using sum().
+Create a list of numbers and find the largest number without using max().
+Create a list of numbers and find the smallest number without using min().
+Create a list of numbers and calculate the average.
+Create a list of numbers and count how many numbers are greater than 50.
+Create a list of numbers and create separate lists for even and odd numbers.
+Create a list containing duplicate values and create a new list without duplicates. Do not use set().
+Create a list of numbers and create a new list containing the squares of all numbers.
+
+
+
+Tuples
+Create a tuple containing 5 colors and print all elements.
+Create a tuple and print its first and last elements.
+Create a tuple and print its elements using slicing.
+Create a tuple of numbers and find its length.
+Create a tuple containing duplicate values and count a particular value using count().
+Create a tuple and find the index of a particular element using index().
+Create a tuple of numbers and find the largest and smallest values.
+Create a tuple containing student information and access each element individually.
+Create a tuple containing a student's name, age, course, and marks. Use tuple unpacking to store them in separate variables.
+Use tuple unpacking to swap the values of two variables without using a third variable.
+Level 3: Lists & Tuples
+Create a list containing 5 tuples, where each tuple contains a student's name and marks. Display all students who scored above 75.
+Create a list of tuples containing product name, price, and quantity. Calculate the total value of each product.
+Create a list of tuples containing employee name, designation, and salary. Find the employee with the highest salary.
+Create a nested list containing student names and three subject marks. Calculate the total and average marks of every student.
+Create a tuple containing multiple lists. Access and modify the elements inside the lists.
+Create a list of numbers and convert it into a tuple.
+Create a tuple of numbers and convert it into a list, then add three new numbers.
+Create two lists and combine them into a single list.
+Create two tuples and combine them into a single tuple.
+Create a list of student tuples and search for a student by name.

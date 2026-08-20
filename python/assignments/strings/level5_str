@@ -1,0 +1,17 @@
+#Level 5: String Logic
+#Write a program to check whether a string is a palindrome.
+#Write a program to count the frequency of each character in a string.
+#Write a program to find the first non-repeated character in a string.
+#Write a program to find the first repeated character in a string.
+#Write a program to remove duplicate characters from a string.
+#Write a program to find the largest word in a sentence.
+#Write a program to find the smallest word in a sentence.
+#Write a program to count the number of words in a sentence without using split().
+#Write a program to reverse each word in a sentence.
+#Write a program to reverse the order of words in a sentence.
+
+
+str="madam"
+str1=str[: :-1]
+print("is",str,"palindrome: ",(str==str1))
+

@@ -1,0 +1,10 @@
+import numpy as np
+arr=np.array([[10,20],[30,40]])
+print(arr)
+print("array type:",type(arr))
+print("accessing:",arr[0,1])
+print("dimension type:",arr.ndim)
+print("slicing:",arr[0:1,0:1])
+print("array size(elements):",arr.size)
+print("array structure:",arr.shape)
+print("array data type:",arr.dtype)

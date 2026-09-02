@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+   
+    <body bgcolor="lightblue">
+        <div class="container"> 
+        <div class="box shadow p-3 mb-5 bg-body rounded">
+        <h1 id="txt">hello world</h1>
+        <button id="btn" class="  btn-secondary">hide</button>
+        <button id="btn1" class="  btn-primary">show</button>
+        <button id="btn2" class=" btn-info">toggle</button>
+        </div>
+    </div>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    $("#txt").hide();
+                });
+                $("#btn1").click(function(){
+                    $("#txt").show();
+                });
+                $("#btn2").click(function(){
+                    $("#txt").toggle();
+                });
+            });
+            </script>
+            </body>
+            </html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login and Signup</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .box {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid gray;
+            align-items:center;
+        }
+
+        input {
+            margin-right:20px;
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+
+<body>
+   
+     
+    <div id="login" class="box">
+        <form class="login-form">
+        <h2>Login Form</h2>
+        <label class="label-form">Username:</label>
+        <input type="text" placeholder="EnterUsername" required>
+        <label class="label-form">Email:</label>
+        <input type="email" placeholder="Enter Email" required>
+        <label class="label-form">Password:</label>
+        <input type="password" placeholder="Enter Password" required>
+        </form>
+
+        <button class="btn btn-primary">Login</button>
+
+        <p>
+            Don't have an account?
+            <a href="#" id="showSignup">Sign Up</a>
+        </p>
+    </div>
+
+
+     
+    <div id="signup" class="box" style="display:none;">
+        <form class="signup-form">
+        <h2>Sign Up</h2>
+        <label class="label-form">Username:</label>
+        <input type="text" placeholder="Enter Username" required>
+        <label class="label-form">Email:</label>
+        <input type="email" placeholder="Enter Email" required>
+        <label class="label-form">Password:</label>
+        <input type="password" placeholder="Enter Password" required>
+        </form>
+
+        <button class="btn btn-primary">Sign Up</button>
+
+        <p>
+            Already have an account?
+            <a href="#" id="showLogin">Login</a>
+        </p>
+    </div>
+ 
+
+
+    <script>
+        $(document).ready(function() {
+
+             
+            $("#showSignup").click(function() {
+                $("#login").hide();
+                $("#signup").show();
+            });
+
+             
+            $("#showLogin").click(function() {
+                $("#signup").hide();
+                $("#login").show();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

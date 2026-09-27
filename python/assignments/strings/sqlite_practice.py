@@ -39,6 +39,7 @@ print(c.fetchall())                 #it returs all the rows
 c.execute("select * from employee where emp_sal>=80000 and emp_name='sri'")
 print(c.fetchall())
 
+
 #update clause
 c.execute("update employee set emp_sal=85000 where emp_name='sri'")
 print(c.fetchall())

@@ -1,0 +1,1464 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course Management System</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f8f7fc;
+            color: #29263d;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 72px;
+            background: white;
+            border-bottom: 1px solid #eee8f5;
+        }
+
+        .navbar-brand {
+            font-size: 26px;
+            font-weight: 800;
+            color: #29263d;
+            text-decoration: none;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            margin-right: 8px;
+
+            border-radius: 12px;
+
+            color: white;
+            font-size: 22px;
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #ec4899
+            );
+        }
+
+        .brand-color {
+            color: #7c3aed;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin-left: auto;
+            margin-right: 35px;
+        }
+
+        .nav-links a {
+            color: #777184;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #7c3aed;
+        }
+
+        .admin {
+            font-weight: 600;
+            color: #4b4659;
+        }
+
+        .admin-icon {
+            color: #ec4899;
+            margin-right: 5px;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 245px;
+
+            margin-top: 25px;
+
+            padding: 40px 55px;
+
+            border-radius: 24px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #eee8ff,
+                    #fff0f5,
+                    #fff6ec
+                );
+        }
+
+        .small-title {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            border-radius: 20px;
+
+            background: white;
+
+            color: #7c3aed;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-top: 16px;
+
+            font-size: 43px;
+
+            font-weight: 800;
+
+            color: #29263d;
+        }
+
+        .hero h1 span {
+            color: #7c3aed;
+        }
+
+        .hero p {
+            margin-top: 10px;
+
+            color: #6e687e;
+
+            font-size: 16px;
+        }
+
+
+        /* Decorative books */
+
+        .hero-image {
+            width: 310px;
+            height: 190px;
+
+            position: relative;
+        }
+
+        .circle-one {
+            position: absolute;
+
+            width: 170px;
+            height: 170px;
+
+            border-radius: 50%;
+
+            background: #ddd0ff;
+
+            right: 30px;
+            top: 0;
+        }
+
+        .circle-two {
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+
+            background: #ffd1e3;
+
+            right: 140px;
+            bottom: 0;
+        }
+
+        .book {
+            position: absolute;
+
+            width: 190px;
+            height: 38px;
+
+            right: 35px;
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .book-one {
+            top: 60px;
+
+            background: #7c3aed;
+
+            transform: rotate(-5deg);
+        }
+
+        .book-two {
+            top: 98px;
+
+            background: #ec4899;
+
+            transform: rotate(3deg);
+        }
+
+        .book-three {
+            top: 136px;
+
+            background: #f97316;
+
+            transform: rotate(-2deg);
+        }
+
+
+        /* ================= MAIN CARD ================= */
+
+        .main-card {
+            margin-top: 25px;
+
+            padding: 28px;
+
+            background: white;
+
+            border: 1px solid #eee8f5;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(73, 49, 110, 0.06);
+        }
+
+
+        /* ================= CARD HEADER ================= */
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .heading-icon {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            color: white;
+
+            font-size: 27px;
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #ec4899
+            );
+        }
+
+        .card-heading h2 {
+            margin: 0;
+
+            font-size: 23px;
+
+            font-weight: 800;
+        }
+
+        .card-heading p {
+            margin: 3px 0 0;
+
+            color: #8a8499;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #403b52;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+        .input-box {
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 13px;
+
+            background: white;
+
+            border: 1px solid #e2ddea;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .input-box:focus-within {
+            border-color: #9b6cff;
+
+            box-shadow:
+                0 0 0 3px rgba(124,58,237,0.10);
+        }
+
+        .input-icon {
+            margin-right: 10px;
+
+            color: #8b5cf6;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+        .input-box input,
+        .input-box select {
+            width: 100%;
+            height: 100%;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: #4c465c;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= ADD BUTTON ================= */
+
+        .add-btn {
+            margin-top: 25px;
+
+            padding: 13px 27px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #ec4899
+            );
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 18px rgba(124,58,237,0.25);
+        }
+
+
+        /* ================= COURSE LIST ================= */
+
+        .course-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+        .course-header h2 {
+            margin: 0;
+
+            font-size: 23px;
+
+            font-weight: 800;
+        }
+
+        .course-header p {
+            margin: 4px 0 0;
+
+            color: #8a8499;
+
+            font-size: 13px;
+        }
+
+        .list-icon {
+            color: #7c3aed;
+
+            margin-right: 8px;
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            width: 280px;
+
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 13px;
+
+            border: 1px solid #e2ddea;
+
+            border-radius: 10px;
+
+            background: white;
+        }
+
+        .search-icon {
+            margin-right: 8px;
+
+            color: #7c3aed;
+
+            font-size: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            border: none;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= TABLE ================= */
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f5f0ff;
+        }
+
+        th {
+            padding: 15px 12px;
+
+            text-align: left;
+
+            color: #51486a;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        td {
+            padding: 15px 12px;
+
+            border-bottom: 1px solid #f0edf4;
+
+            color: #686275;
+
+            font-size: 13px;
+        }
+
+        td strong {
+            color: #342e43;
+        }
+
+        tbody tr {
+            transition: 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #fcfaff;
+        }
+
+
+        /* ================= BADGES ================= */
+
+        .badge {
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .online {
+            background: #ede9fe;
+
+            color: #6d28d9;
+        }
+
+        .offline {
+            background: #ffe4e6;
+
+            color: #be123c;
+        }
+
+        .active {
+            background: #dcfce7;
+
+            color: #15803d;
+        }
+
+        .upcoming {
+            background: #ffedd5;
+
+            color: #c2410c;
+        }
+
+        .completed {
+            background: #f3e8ff;
+
+            color: #7e22ce;
+        }
+
+
+        /* ================= ACTION BUTTONS ================= */
+
+        .actions {
+            display: flex;
+
+            gap: 7px;
+        }
+
+        .action-btn {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .edit {
+            background: #7c3aed;
+        }
+
+        .delete {
+            background: #ef4444;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= TABLE FOOTER ================= */
+
+        .table-footer {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 20px;
+
+            color: #777184;
+
+            font-size: 13px;
+        }
+
+        .pagination {
+            display: flex;
+
+            gap: 6px;
+        }
+
+        .pagination button {
+            width: 35px;
+            height: 35px;
+
+            border: 1px solid #e4dfeb;
+
+            background: white;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        .pagination .current {
+            background: #7c3aed;
+
+            color: white;
+
+            border-color: #7c3aed;
+        }
+
+        .empty {
+            text-align: center;
+
+            padding: 40px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 992px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 30px;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+        }
+
+
+        @media(max-width: 576px) {
+
+            .hero {
+                margin-left: 12px;
+                margin-right: 12px;
+
+                padding: 25px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .main-card {
+                padding: 18px;
+            }
+
+            .course-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .table-footer {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="container d-flex align-items-center">
+
+        <a href="#" class="navbar-brand">
+
+            <span class="logo">✦</span>
+
+            Course<span class="brand-color">Hub</span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="#" class="active">
+                Dashboard
+            </a>
+
+            <a href="#">
+                Courses
+            </a>
+
+            <a href="#">
+                Trainers
+            </a>
+
+            <a href="#">
+                Reports
+            </a>
+
+            <a href="#">
+                Settings
+            </a>
+
+        </div>
+
+
+        <div class="admin">
+
+            <span class="admin-icon">●</span>
+
+            Admin ▾
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<div class="container">
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+
+            LEARN • GROW • ACHIEVE
+
+        </div>
+
+
+        <h1>
+
+            Course Management
+            <span>System</span>
+
+        </h1>
+
+
+        <p>
+
+            Manage courses, trainers, schedules and student opportunities
+            from one simple dashboard.
+
+        </p>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="circle-one"></div>
+
+        <div class="circle-two"></div>
+
+
+        <div class="book book-one">
+            COURSES
+        </div>
+
+        <div class="book book-two">
+            SKILLS
+        </div>
+
+        <div class="book book-three">
+            FUTURE
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ADD COURSE ================= -->
+
+<div class="main-card">
+
+
+    <div class="card-heading">
+
+        <div class="heading-icon">
+            +
+        </div>
+
+
+        <div>
+
+            <h2>
+                Add New Course
+            </h2>
+
+            <p>
+                Create and manage your training programs
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+
+        <div class="row g-4">
+
+
+            <!-- COURSE -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Course
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ▣
+                    </span>
+
+                    <input
+                        type="text"
+                        name="course"
+                        placeholder="Enter course name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DURATION -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Duration
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ◷
+                    </span>
+
+                    <input
+                        type="text"
+                        name="duration"
+                        placeholder="e.g. 3 Months"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FEE -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Fee
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ₹
+                    </span>
+
+                    <input
+                        type="text"
+                        name="fee"
+                        placeholder="e.g. 5000"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TRAINER -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Trainer Name
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ♙
+                    </span>
+
+                    <input
+                        type="text"
+                        name="trainer_name"
+                        placeholder="Enter trainer name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MODE -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Mode
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ▣
+                    </span>
+
+                    <select
+                        name="mode_onlineoffline"
+                        required
+                    >
+
+                        <option value="">
+                            Select mode
+                        </option>
+
+                        <option value="Online">
+                            Online
+                        </option>
+
+                        <option value="Offline">
+                            Offline
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- START DATE -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Start Date
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ◫
+                    </span>
+
+                    <input
+                        type="date"
+                        name="start_date"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEATS -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    No. of Seats
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ♟
+                    </span>
+
+                    <input
+                        type="number"
+                        name="noof_seats"
+                        placeholder="e.g. 30"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STATUS -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <label>
+                    Course Status
+                </label>
+
+                <div class="input-box">
+
+                    <span class="input-icon">
+                        ◆
+                    </span>
+
+                    <select
+                        name="course_status"
+                        required
+                    >
+
+                        <option value="">
+                            Select status
+                        </option>
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Upcoming">
+                            Upcoming
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <button
+            type="submit"
+            class="add-btn"
+        >
+
+            + &nbsp; Add Course
+
+        </button>
+
+
+    </form>
+
+</div>
+
+
+
+<!-- ================= COURSE LIST ================= -->
+
+<div class="main-card">
+
+
+    <div class="course-header">
+
+
+        <div>
+
+            <h2>
+
+                <span class="list-icon">
+                    ☷
+                </span>
+
+                Course List
+
+            </h2>
+
+            <p>
+                View and manage all available courses
+            </p>
+
+        </div>
+
+
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="text"
+                id="searchCourse"
+                placeholder="Search course..."
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="table-responsive">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+
+                    <th>Course</th>
+
+                    <th>Duration</th>
+
+                    <th>Fee</th>
+
+                    <th>Trainer</th>
+
+                    <th>Mode</th>
+
+                    <th>Start Date</th>
+
+                    <th>Seats</th>
+
+                    <th>Status</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody id="courseTable">
+
+
+                {% for c in courses %}
+
+                <tr>
+
+                    <td>
+                        {{ forloop.counter }}
+                    </td>
+
+
+                    <td>
+
+                        <strong>
+                            {{ c.course }}
+                        </strong>
+
+                    </td>
+
+
+                    <td>
+                        {{ c.duration }}
+                    </td>
+
+
+                    <td>
+                        ₹ {{ c.fee }}
+                    </td>
+
+
+                    <td>
+                        {{ c.trainer_name }}
+                    </td>
+
+
+                    <td>
+
+                        {% if c.mode_onlineoffline == "Online" %}
+
+                        <span class="badge online">
+                            Online
+                        </span>
+
+                        {% else %}
+
+                        <span class="badge offline">
+                            Offline
+                        </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <td>
+
+                        {{ c.start_date|date:"d-m-Y" }}
+
+                    </td>
+
+
+                    <td>
+                        {{ c.noof_seats }}
+                    </td>
+
+
+                    <td>
+
+                        {% if c.course_status == "Active" %}
+
+                        <span class="badge active">
+                            Active
+                        </span>
+
+
+                        {% elif c.course_status == "Upcoming" %}
+
+                        <span class="badge upcoming">
+                            Upcoming
+                        </span>
+
+
+                        {% else %}
+
+                        <span class="badge completed">
+                            Completed
+                        </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="actions">
+
+                            <a
+                                href="#"
+                                class="action-btn edit"
+                            >
+                                ✎
+                            </a>
+
+
+                            <a
+                                href="#"
+                                class="action-btn delete"
+                            >
+                                ×
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                {% empty %}
+
+                <tr>
+
+                    <td
+                        colspan="10"
+                        class="empty"
+                    >
+
+                        No courses available.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <!-- TABLE FOOTER -->
+
+    <div class="table-footer">
+
+        <span>
+
+            Showing {{ courses|length }} course(s)
+
+        </span>
+
+
+        <div class="pagination">
+
+            <button>
+                ‹
+            </button>
+
+            <button class="current">
+                1
+            </button>
+
+            <button>
+                ›
+            </button>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- ================= SEARCH JAVASCRIPT ================= -->
+
+<script>
+
+    document
+        .getElementById("searchCourse")
+        .addEventListener("keyup", function () {
+
+            let search = this.value.toLowerCase();
+
+            let rows =
+                document.querySelectorAll(
+                    "#courseTable tr"
+                );
+
+
+            rows.forEach(function (row) {
+
+                let text =
+                    row.innerText.toLowerCase();
+
+
+                if (text.includes(search)) {
+
+                    row.style.display = "";
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
